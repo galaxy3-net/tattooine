@@ -17,6 +17,8 @@ Vagrant.configure("2") do |config|
   config.vm.boot_timeout = 4
   config.vm.hostname = "tattoine"
 
+  config.ssh.username = 'vagrant'
+  config.ssh.password = 'vagrant'
   config.vbguest.auto_update = false
 
   config.ssh.insert_key = false
