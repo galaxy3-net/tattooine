@@ -17,6 +17,15 @@ Vagrant.configure("2") do |config|
   config.vm.boot_timeout = 4
   config.vm.hostname = "tattoine"
 
+  config.vbguest.auto_update = false
+
+  config.ssh.insert_key = false
+  config.ssh.connect_timeout = 20
+
+  config.vm.boot_timeout = 120
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -81,9 +90,4 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "/home/vagrant/playbook.yml"
-    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
-    inventory_path = "/home/vagrant/hosts"
-  end
 end
