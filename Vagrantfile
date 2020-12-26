@@ -27,8 +27,12 @@ Vagrant.configure("2") do |config|
     ub1404.vm.provider "virtualbox" do |v|
       v.name = "Tatttoine (Metasploitable3-ub1404)"
       v.memory = 2048
+
+      v.customize ['modifyvm', :id, '--nic0', 'intnet']
       v.customize ['modifyvm', :id, '--nictype0', 'virtio']
       v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
+
+
       v.customize ['modifyvm', :id, '--nictype1', 'virtio']
       v.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
       v.customize ['modifyvm', :id, '--nictype2', 'virtio']
@@ -49,6 +53,7 @@ Vagrant.configure("2") do |config|
     win2k8.vm.network "private_network", type: "dhcp"
 
     win2k8.vm.provider "libvirt" do |v|
+      v.name = "Tatttoine (metasploitable3-win2k8)"
       v.memory = 4096
       v.cpus = 2
       v.video_type = 'qxl'
@@ -56,6 +61,11 @@ Vagrant.configure("2") do |config|
       v.channel :type => 'unix', :target_name => 'org.qemu.guest_agent.0', :target_type => 'virtio'
       v.channel :type => 'spicevmc', :target_name => 'com.redhat.spice.0', :target_type => 'virtio'
       v.graphics_type = "spice"
+
+      v.customize ['modifyvm', :id, '--nic0', 'intnet']
+      v.customize ['modifyvm', :id, '--nictype0', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
+
 
       # Enable Hyper-V enlightenments: https://blog.wikichoon.com/2014/07/enabling-hyper-v-enlightenments-with-kvm.html
       v.hyperv_feature :name => 'stimer',  :state => 'on'
