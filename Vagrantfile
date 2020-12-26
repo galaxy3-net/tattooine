@@ -22,8 +22,8 @@ Vagrant.configure("2") do |config|
     ub1404.ssh.connect_timeout = 20
     ub1404.vm.boot_timeout = 120
 
-    ub1404.vm.network "private_network", ip: '10.55.55.50', name: "metasploitable3",
-    	virtualbox__intnet: true
+    ub1404.vm.network "private_network", ip: '10.55.55.50',
+    	virtualbox__intnet: "metasploitable3"
 
     ub1404.vm.provider "virtualbox" do |v|
       v.name = "Tatttoine (Metasploitable3-ub1404)"
@@ -55,8 +55,8 @@ Vagrant.configure("2") do |config|
 
     #win2k8.vm.network "private_network", type: "dhcp"
     #ub1404.vm.network "private_network", ip: '10.55.55.50'
-	win2k8.vm.network "private_network", ip: '10.55.55.51', name: "metasploitable3",
-		virtualbox__intnet: true
+	win2k8.vm.network "private_network", ip: '10.55.55.51',
+		virtualbox__intnet: "metasploitable3"
 
     win2k8.vm.provider "libvirt" do |v|
       v.name = "Tatttoine (metasploitable3-win2k8)"
@@ -71,7 +71,12 @@ Vagrant.configure("2") do |config|
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
       v.customize ['modifyvm', :id, '--nictype0', 'virtio']
       v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
-
+      v.customize ['modifyvm', :id, '--nictype1', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+      v.customize ['modifyvm', :id, '--nictype2', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
+      v.customize ['modifyvm', :id, '--nictype3', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
 
       # Enable Hyper-V enlightenments: https://blog.wikichoon.com/2014/07/enabling-hyper-v-enlightenments-with-kvm.html
       v.hyperv_feature :name => 'stimer',  :state => 'on'
@@ -92,7 +97,7 @@ Vagrant.configure("2") do |config|
     # Insecure share from the Linux machine
     win2k8.vm.provision :shell, inline: "C:\\startup\\install_share_autorun.bat"
     win2k8.vm.provision :shell, inline: "C:\\startup\\setup_linux_share.bat"
-    win2k8.vm.provision :shell, inline: "rm C:\\startup\\*" # Cleanup startup scripts
+    #win2k8.vm.provision :shell, inline: "rm C:\\startup\\*" # Cleanup startup scripts
   end
 
 end
