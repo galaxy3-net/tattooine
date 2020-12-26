@@ -50,7 +50,9 @@ Vagrant.configure("2") do |config|
     win2k8.winrm.retry_limit = 60
     win2k8.winrm.retry_delay = 10
 
-    win2k8.vm.network "private_network", type: "dhcp"
+    #win2k8.vm.network "private_network", type: "dhcp"
+    #ub1404.vm.network "private_network", ip: '10.55.55.50'
+	win2k8.vm.network "private_network", ip: '10.55.55.51'
 
     win2k8.vm.provider "libvirt" do |v|
       v.name = "Tatttoine (metasploitable3-win2k8)"
