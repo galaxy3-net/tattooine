@@ -22,7 +22,8 @@ Vagrant.configure("2") do |config|
     ub1404.ssh.connect_timeout = 20
     ub1404.vm.boot_timeout = 120
 
-    ub1404.vm.network "private_network", ip: '10.55.55.50', name: "metasploitable3"
+    ub1404.vm.network "private_network", ip: '10.55.55.50', name: "metasploitable3",
+    	virtualbox__intnet: true
 
     ub1404.vm.provider "virtualbox" do |v|
       v.name = "Tatttoine (Metasploitable3-ub1404)"
@@ -54,7 +55,8 @@ Vagrant.configure("2") do |config|
 
     #win2k8.vm.network "private_network", type: "dhcp"
     #ub1404.vm.network "private_network", ip: '10.55.55.50'
-	win2k8.vm.network "private_network", ip: '10.55.55.51', name: "metasploitable3"
+	win2k8.vm.network "private_network", ip: '10.55.55.51', name: "metasploitable3",
+		virtualbox__intnet: true
 
     win2k8.vm.provider "libvirt" do |v|
       v.name = "Tatttoine (metasploitable3-win2k8)"
