@@ -64,10 +64,10 @@ Vagrant.configure("2") do |config|
       v.memory = 4096
       v.cpus = 2
 #      v.video_type = 'qxl'
-      v.input :type => "tablet", :bus => "usb"
-      v.channel :type => 'unix', :target_name => 'org.qemu.guest_agent.0', :target_type => 'virtio'
-      v.channel :type => 'spicevmc', :target_name => 'com.redhat.spice.0', :target_type => 'virtio'
-      v.graphics_type = "spice"
+#      v.input :type => "tablet", :bus => "usb"
+#      v.channel :type => 'unix', :target_name => 'org.qemu.guest_agent.0', :target_type => 'virtio'
+#      v.channel :type => 'spicevmc', :target_name => 'com.redhat.spice.0', :target_type => 'virtio'
+#      v.graphics_type = "spice"
 
       v.customize ['modifyvm', :id, '--nictype0', 'virtio']
       v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
