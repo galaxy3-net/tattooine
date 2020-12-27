@@ -81,7 +81,7 @@ Vagrant.configure("2") do |config|
     end
 
     win2k8.vm.provider "libvirt" do |v|
-      v.name = "Tatttoine (metasploitable3-win2k8)"
+      v.name = "Tatttoine (www)"
       v.memory = 4096
       v.cpus = 2
       v.video_type = 'qxl'
