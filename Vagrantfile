@@ -56,11 +56,11 @@ Vagrant.configure("2") do |config|
 
     #win2k8.vm.network "private_network", type: "dhcp"
     #ub1404.vm.network "private_network", ip: '10.55.55.50'
-	win2k8.vm.network "private_network", ip: '10.55.56.51',
+#	win2k8.vm.network "private_network", ip: '10.55.56.51',
 		virtualbox__intnet: "metasploitable3"
 
     win2k8.vm.provider "virtualbox" do |v|
-      v.name = "Tatttoine (metasploitable3-win2k8)"
+      v.name = "Tatttoine (win)"
       v.memory = 4096
       v.cpus = 2
 #      v.video_type = 'qxl'
