@@ -59,6 +59,27 @@ Vagrant.configure("2") do |config|
 	win2k8.vm.network "private_network", ip: '10.55.56.51',
 		virtualbox__intnet: "metasploitable3"
 
+    win2k8.vm.provider "virtualbox" do |v|
+      v.name = "Tatttoine (metasploitable3-win2k8)"
+      v.memory = 4096
+      v.cpus = 2
+      v.video_type = 'qxl'
+      v.input :type => "tablet", :bus => "usb"
+      v.channel :type => 'unix', :target_name => 'org.qemu.guest_agent.0', :target_type => 'virtio'
+      v.channel :type => 'spicevmc', :target_name => 'com.redhat.spice.0', :target_type => 'virtio'
+      v.graphics_type = "spice"
+
+      v.customize ['modifyvm', :id, '--nictype0', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
+      v.customize ['modifyvm', :id, '--nictype1', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+      v.customize ['modifyvm', :id, '--nictype2', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
+      v.customize ['modifyvm', :id, '--nictype3', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
+
+    end
+
     win2k8.vm.provider "libvirt" do |v|
       v.name = "Tatttoine (metasploitable3-win2k8)"
       v.memory = 4096
