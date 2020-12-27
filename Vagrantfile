@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
     	nic_type: "virtio"
 
     ub1404.vm.provider "virtualbox" do |v|
-      v.name = "Tatttoine (Metasploitable3-ub1404)"
+      v.name = "Tatttoine (ms3-ub1404)"
       v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
@@ -47,12 +47,15 @@ Vagrant.configure("2") do |config|
   config.vm.define "win2k8" do |win2k8|
     # Base configuration for the VM and provisioner
     win2k8.vm.box = "rapid7/metasploitable3-win2k8"
-    win2k8.vm.hostname = "metasploitable3-win2k8"
+    # win2k8.vm.hostname = "metasploitable3-win2k8"
     win2k8.vm.communicator = "winrm"
     win2k8.winrm.retry_limit = 60
     win2k8.winrm.retry_delay = 10
 
 	win2k8.vbguest.auto_update = false
+    ub1404.ssh.insert_key = false
+    ub1404.ssh.connect_timeout = 20
+    ub1404.vm.boot_timeout = 120
 
     #win2k8.vm.network "private_network", type: "dhcp"
     #ub1404.vm.network "private_network", ip: '10.55.55.50'
@@ -60,7 +63,7 @@ Vagrant.configure("2") do |config|
 		virtualbox__intnet: "metasploitable3"
 
     win2k8.vm.provider "virtualbox" do |v|
-      v.name = "Tatttoine (win)"
+      v.name = "Tatttoine (ms3-win2k8)"
       v.memory = 4096
       v.cpus = 2
 #      v.video_type = 'qxl'
