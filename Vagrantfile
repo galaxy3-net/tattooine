@@ -53,9 +53,9 @@ Vagrant.configure("2") do |config|
     win2k8.winrm.retry_delay = 10
 
 	win2k8.vbguest.auto_update = false
-    ub1404.ssh.insert_key = false
-    ub1404.ssh.connect_timeout = 20
-    ub1404.vm.boot_timeout = 120
+    win2k8.ssh.insert_key = false
+    win2k8.ssh.connect_timeout = 20
+    win2k8.vm.boot_timeout = 120
 
     #win2k8.vm.network "private_network", type: "dhcp"
     #ub1404.vm.network "private_network", ip: '10.55.55.50'
