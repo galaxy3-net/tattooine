@@ -69,13 +69,13 @@ Vagrant.configure("2") do |config|
 #      v.channel :type => 'spicevmc', :target_name => 'com.redhat.spice.0', :target_type => 'virtio'
 #      v.graphics_type = "spice"
 
-      v.customize ['modifyvm', :id, '--nictype0', 'virtio']
+      v.customize ['modifyvm', :id, '--nictype0', '82545EM']
       v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
-      v.customize ['modifyvm', :id, '--nictype1', 'virtio']
+      v.customize ['modifyvm', :id, '--nictype1', '82545EM']
       v.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-      v.customize ['modifyvm', :id, '--nictype2', 'virtio']
+      v.customize ['modifyvm', :id, '--nictype2', '82545EM']
       v.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-      v.customize ['modifyvm', :id, '--nictype3', 'virtio']
+      v.customize ['modifyvm', :id, '--nictype3', '82545EM']
       v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
 
     end
