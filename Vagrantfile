@@ -31,8 +31,8 @@ Vagrant.configure("2") do |config|
       v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
- #     v.customize ['modifyvm', :id, '--nictype0', 'virtio']
- #     v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
+      v.customize ['modifyvm', :id, '--nictype0', 'virtio']
+      v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
 #
 #
 #      v.customize ['modifyvm', :id, '--nictype1', 'virtio']
