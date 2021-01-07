@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "ub1404" do |ub1404|
     ub1404.vm.box = "rapid7/metasploitable3-ub1404"
     ub1404.vm.box_version = "0.1.12-weekly"
-    ub1404.vm.hostname = "tattoine"
+#    ub1404.vm.hostname = "tattoine"
 #    ub1404.ssh.username = 'vagrant'
 #    ub1404.ssh.password = 'vagrant'
 
