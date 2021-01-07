@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
 
     # ub1404.vm.network "private_network", ip: '172.28.128.3'
 
-    	win2k8.vm.network "private_network", ip: '10.55.56.52',
-    		virtualbox__intnet: "metasploitable3"
+    ub1404.vm.network "private_network", ip: '10.55.56.52',
+    	virtualbox__intnet: "metasploitable3"
 
     ub1404.vm.provider "virtualbox" do |v|
       v.name = "Metasploitable3-ub1404"
