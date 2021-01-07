@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
     ub1404.vm.box_version = "0.1.12-weekly"
     ub1404.vm.hostname = "tattoine"
     ub1404.ssh.username = 'vagrant'
-    ub1404.ssh.password = 'vagrant'
+#    ub1404.ssh.password = 'vagrant'
 
     ub1404.vbguest.auto_update = false
     ub1404.ssh.insert_key = false
@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
     	nic_type: "virtio"
 
     ub1404.vm.provider "virtualbox" do |v|
-      v.name = ENV['boxame']
+      v.name = "Tatttoine (ms3ubuntu1404)"
       v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
