@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
     ub1404.vm.box = "rapid7/metasploitable3-ub1404"
     ub1404.vm.box_version = "0.1.12-weekly"
     ub1404.vm.hostname = "tattoine"
-    ub1404.ssh.username = 'vagrant'
+#    ub1404.ssh.username = 'vagrant'
 #    ub1404.ssh.password = 'vagrant'
 
     ub1404.vbguest.auto_update = false
@@ -22,17 +22,17 @@ Vagrant.configure("2") do |config|
     ub1404.ssh.connect_timeout = 20
     ub1404.vm.boot_timeout = 120
 
-    ub1404.vm.network "private_network", ip: '10.55.56.50',
-    	virtualbox__intnet: "metasploitable3",
-    	nic_type: "virtio"
+#    ub1404.vm.network "private_network", ip: '10.55.56.50',
+#    	virtualbox__intnet: "metasploitable3",
+#    	nic_type: "virtio"
 
     ub1404.vm.provider "virtualbox" do |v|
       v.name = "Tatttoine (ms3ubuntu1404)"
       v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
-      v.customize ['modifyvm', :id, '--nictype0', 'virtio']
-      v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
+#      v.customize ['modifyvm', :id, '--nictype0', 'virtio']
+#      v.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
 #
 #
 #      v.customize ['modifyvm', :id, '--nictype1', 'virtio']
