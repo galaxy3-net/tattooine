@@ -11,6 +11,13 @@ Vagrant.configure("2") do |config|
 
     # ub1404.vm.network "private_network", ip: '172.28.128.3'
 
+    ub1404.vbguest.auto_update = false
+    ub1404.ssh.insert_key = false
+    ub1404.ssh.connect_timeout = 20
+    ub1404.vm.boot_timeout = 120
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
     ub1404.vm.network "private_network", ip: '10.55.56.52',
     	virtualbox__intnet: "metasploitable3"
 
